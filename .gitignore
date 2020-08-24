@@ -1,0 +1,10 @@
+*.swp
+*.pyc
+tags
+__pycache__/
+docs/_build/
+docs/auto_examples/
+dist/
+*.egg-info/
+.venv*/
+build/
