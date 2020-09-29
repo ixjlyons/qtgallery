@@ -61,3 +61,7 @@ sphinx_gallery_conf = {
     'filename_pattern': r'.*\.py',
     'reset_modules': (qtgallery.reset_qapp,),
 }
+
+from pyvirtualdisplay import Display
+disp = Display(backend='xvfb', size=(800, 600))
+disp.start()
