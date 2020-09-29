@@ -8,7 +8,9 @@ def qtscraper(block, block_vars, gallery_conf):
     """Basic implementation of a Qt window scraper.
 
     Looks for any non-hidden windows in the current application instance and
-    uses ``grab`` to render an image of the window.
+    uses ``grab`` to render an image of the window. The window is closed
+    afterward, so you have to call ``show()`` again to render it in a
+    subsequent cell.
 
     ``processEvents`` is called once in case events still need to propagate.
     """
@@ -22,11 +24,10 @@ def qtscraper(block, block_vars, gallery_conf):
 
     rendered_imgs = []
     for widg, imgpath in zip(widgets, imgpath_iter):
-        if not widg.isHidden():
-            pixmap = widg.grab()
-            pixmap.save(imgpath)
-            rendered_imgs.append(imgpath)
-            widg.close()
+        pixmap = widg.grab()
+        pixmap.save(imgpath)
+        rendered_imgs.append(imgpath)
+        widg.close()
 
     app.processEvents()
 
