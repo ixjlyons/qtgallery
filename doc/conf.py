@@ -14,6 +14,13 @@ import os
 import sys
 import qtgallery
 
+if os.getenv("READTHEDOCS"):
+    import subprocess
+    subprocess.check_output("apt-get download xvfb", shell=True)
+    subprocess.check_output("dpkg -x *.deb .", shell=True)
+    from pyvirtualdisplay import xvfb
+    xvfb.PROGRAM = "./usr/bin/Xvfb"
+
 # -- Project information -----------------------------------------------------
 
 project = 'qtgallery'
