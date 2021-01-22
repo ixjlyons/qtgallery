@@ -17,6 +17,8 @@ def qtscraper(block, block_vars, gallery_conf):
     imgpath_iter = block_vars['image_path_iterator']
 
     app = QApplication.instance()
+    if app is None:
+        app = QApplication([])
     app.processEvents()
 
     # get top-level widgets that aren't hidden
@@ -28,8 +30,6 @@ def qtscraper(block, block_vars, gallery_conf):
         pixmap.save(imgpath)
         rendered_imgs.append(imgpath)
         widg.close()
-
-    app.processEvents()
 
     return scrapers.figure_rst(rendered_imgs, gallery_conf['src_dir'])
 
