@@ -11,6 +11,7 @@ setup(
     install_requires=[
         "qtpy",
         "pyside2",
+        "pyqtgraph",
         "pyvirtualdisplay",
         "sphinx",
         "sphinx-gallery",
