@@ -14,13 +14,6 @@ import os
 import sys
 import qtgallery
 
-if os.getenv("READTHEDOCS"):
-    import subprocess
-    subprocess.check_output("apt-get download xvfb", shell=True)
-    subprocess.check_output("dpkg -x *.deb .", shell=True)
-    from pyvirtualdisplay import xvfb
-    xvfb.PROGRAM = "./usr/bin/Xvfb"
-
 # -- Project information -----------------------------------------------------
 
 project = 'qtgallery'
@@ -38,6 +31,7 @@ release = '0.0.1'
 # ones.
 extensions = [
     'sphinx_gallery.gen_gallery',
+    'qtgallery',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -68,7 +62,3 @@ sphinx_gallery_conf = {
     'filename_pattern': r'.*\.py',
     'reset_modules': (qtgallery.reset_qapp,),
 }
-
-from pyvirtualdisplay import Display
-disp = Display(backend='xvfb', size=(800, 600))
-disp.start()
