@@ -2,7 +2,7 @@
 Iterative Example
 =================
 
-Example that tests out showing a wiget more than once in an iterative tutorial
+Example that tests out showing a widget more than once in an iterative tutorial
 style.
 """
 
@@ -11,7 +11,7 @@ from qtpy import QtWidgets
 app = QtWidgets.QApplication([])
 
 # %%
-# We start by constructing the View and Scene.
+# We start by constructing the ``QGraphicsView`` and its ``QGraphicsScene``.
 
 scene = QtWidgets.QGraphicsScene()
 view = QtWidgets.QGraphicsView(scene)
@@ -30,5 +30,6 @@ text.moveBy(0, 80)
 view.show()
 
 # %%
+# Exec so the example works independent of ``qtgallery`` usage.
 
 app.exec_()

@@ -21,13 +21,13 @@ label = QtWidgets.QLabel("Hey there!")
 layout.addWidget(label)
 
 # %%
-# Show the widget so it's rendered before the next code cell:
+# Show the widget so it'll render right after this text:
 
 w.show()
 
 # %%
-# If you have a ``QApplication.exec_()`` call at the end of your example
-# scripts (so they can be run as-is from the command line), qtgallery can
-# disable execution, preventing an indefinite loop.
+# If you have a ``QApplication.exec_()`` call at the end of your example script
+# (so it can be run as-is from the command line), ``qtgallery`` disables
+# the Qt event loop execution to prevent an indefinite loop.
 
 app.exec_()
