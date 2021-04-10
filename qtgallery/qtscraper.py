@@ -22,7 +22,7 @@ def qtscraper(block, block_vars, gallery_conf):
     app.processEvents()
 
     # get top-level widgets that aren't hidden
-    widgets = filter(lambda w: not w.isHidden(), app.topLevelWidgets())
+    widgets = [w for w in app.topLevelWidgets() if not w.isHidden()]
 
     rendered_imgs = []
     for widg, imgpath in zip(widgets, imgpath_iter):
