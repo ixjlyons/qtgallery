@@ -2,6 +2,10 @@
 qtgallery
 =========
 
+.. image:: https://readthedocs.org/projects/qtgallery/badge/?version=latest
+   :target: https://qtgallery.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
 This is a work-in-progress demo as I try to figure out how to get
 `sphinx-gallery`_ to render screenshots of Qt applications.
 
