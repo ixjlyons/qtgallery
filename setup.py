@@ -12,6 +12,7 @@ setup(
         "qtpy",
         "pyside2",
         "pyqtgraph",
+        "pyopengl",
         "pyvirtualdisplay",
         "sphinx",
         "sphinx-gallery",
