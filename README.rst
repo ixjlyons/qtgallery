@@ -37,16 +37,19 @@ Configuration
 
 To use ``qtgallery`` in your own documentation, start by setting up
 `sphinx-gallery`_. This library provides two key components to add to your
-``sphinx_gallery_conf``: an `image scraper`_ and a `reset function`_::
+``sphinx_gallery_conf``: an `image scraper`_ and a `reset function`_:
 
-    import qtgallery
+.. code-block:: python
 
-    sphinx_gallery_conf = {
-        ...
-        'image_scrapers': (qtgallery.qtscraper, ...),
-        'reset_modules': (qtgallery.reset_qapp, ...),
-        ...
-    }
+   # sphinx conf.py
+   import qtgallery
+
+   sphinx_gallery_conf = {
+       ...
+       'image_scrapers': (qtgallery.qtscraper, ...),
+       'reset_modules': (qtgallery.reset_qapp, ...),
+       ...
+   }
 
 The image scraper is responsible for generating a rendering of all currently
 shown top level widgets.
