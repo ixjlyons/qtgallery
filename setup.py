@@ -1,8 +1,19 @@
+import os
+import codecs
 from setuptools import setup
+
+
+def read(fp):
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, fp), 'r') as f:
+        return f.read()
+
+
+exec(read(os.path.join('qtgallery', '_version.py')))
 
 setup(
     name="qtgallery",
-    version="0.0.1",
+    version=__version__,
     description="sphinx-gallery scraper for Qt examples and tutorials",
     author="Kenneth Lyons",
     author_email="ixjlyons@gmail.com",
@@ -10,12 +21,8 @@ setup(
     packages=["qtgallery"],
     install_requires=[
         "qtpy",
-        "pyside2",
-        "pyqtgraph",
-        "pyopengl",
         "pyvirtualdisplay",
-        "sphinx",
-        "sphinx-gallery",
+        "sphinx_gallery",
         "pillow",
         "sphinx_rtd_theme",
     ],

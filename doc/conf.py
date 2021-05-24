@@ -21,7 +21,7 @@ copyright = '2020, Kenneth R. Lyons'
 author = 'Kenneth R. Lyons'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = qtgallery.__version__
 
 
 # -- General configuration ---------------------------------------------------
