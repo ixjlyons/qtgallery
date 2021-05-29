@@ -19,7 +19,7 @@ to add to your own ``sphinx-gallery`` config as well as an example of its usage.
 Installation
 ============
 
-``qtgallery`` is availalbe on PyPI_, so it can be installe with pip::
+``qtgallery`` is available on PyPI_, so it can be installed with pip::
 
     $ pip install qtgallery
 
