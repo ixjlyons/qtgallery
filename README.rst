@@ -55,7 +55,6 @@ Next, add ``qtgallery`` to ``extensions``:
        ...
        'sphinx_gallery.gen_gallery',
        'qtgallery',
-       ...
     }
 
 Next, add the ``qtgallery`` `image scraper`_ and `reset function`_ to
@@ -70,7 +69,6 @@ Next, add the ``qtgallery`` `image scraper`_ and `reset function`_ to
        ...
        'image_scrapers': (qtgallery.qtscraper, ...),
        'reset_modules': (qtgallery.reset_qapp, ...),
-       ...
    }
 
 The image scraper is responsible for generating a rendering of all currently
