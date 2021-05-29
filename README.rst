@@ -2,6 +2,10 @@
 qtgallery
 =========
 
+.. image:: https://badge.fury.io/py/qtgallery.svg
+   :target: https://badge.fury.io/py/qtgallery
+   :alt: PyPI Package
+
 .. image:: https://readthedocs.org/projects/qtgallery/badge/?version=latest
    :target: https://qtgallery.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
@@ -15,15 +19,17 @@ to add to your own ``sphinx-gallery`` config as well as an example of its usage.
 Installation
 ============
 
-For the time being, clone the repo and install from source::
+``qtgallery`` is availalbe on PyPI_, so it can be installe with pip::
+
+    $ pip install qtgallery
+
+To try out the repository and get a feel for how it is configured, clone the
+repository and install a few extra requirements to build the documentation
+locally::
 
     $ git clone git@github.com:ixjlyons/qtgallery.git
-    $ cd qtgallery
-    $ pip install .
-
-Now you should be able to generate the docs/gallery::
-
-    $ cd doc
+    $ cd qtgallery/doc
+    $ pip install -r requirements
     $ make html
 
 Open up ``doc/_build/html/index.html`` to see built docs. They're currently
@@ -92,6 +98,7 @@ apt packages`_. This repository also serves as an example (see
 
 
 .. _sphinx-gallery: https://sphinx-gallery.github.io/stable/index.html
+.. _PyPI: https://pypi.org/project/qtgallery/
 .. _image scraper: https://sphinx-gallery.github.io/stable/configuration.html#image-scrapers
 .. _reset function: https://sphinx-gallery.github.io/stable/configuration.html#resetting-modules
 .. _iterative example: https://qtgallery.readthedocs.io/en/latest/auto_examples/iterative.html#sphx-glr-auto-examples-iterative-py
