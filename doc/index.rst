@@ -11,6 +11,7 @@ Welcome to qtgallery's documentation!
    :caption: Contents:
 
    auto_examples/index
+   api
 
 
 

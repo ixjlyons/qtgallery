@@ -32,6 +32,7 @@ release = qtgallery.__version__
 extensions = [
     'sphinx_gallery.gen_gallery',
     'qtgallery',
+    'sphinx.ext.autodoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -58,7 +59,7 @@ html_static_path = ['_static']
 sphinx_gallery_conf = {
     'examples_dirs': os.path.join('..', 'examples'),
     'gallery_dirs': 'auto_examples',
-    'image_scrapers': (qtgallery.qtscraper,),
+    'image_scrapers': (qtgallery.qtscraper, 'matplotlib'),
     'filename_pattern': r'.*\.py',
     'reset_modules': (qtgallery.reset_qapp,),
 }

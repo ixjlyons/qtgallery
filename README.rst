@@ -36,8 +36,24 @@ Configuration
 =============
 
 To use ``qtgallery`` in your own documentation, start by setting up
-`sphinx-gallery`_. This library provides two key components to add to your
-``sphinx_gallery_conf``: an `image scraper`_ and a `reset function`_:
+`sphinx-gallery`_ -- ``qtgallery`` doesn't have its own configuration and
+instead relies on ``sphinx_gallery_conf``. Setting up a simple matplotlib plot
+as an example might be a good idea for testing the configuration works.
+
+Next, add ``qtgallery`` to ``extensions``:
+
+.. code-block:: python
+
+   # sphinx conf.py
+   extensions = {
+       ...
+       'sphinx_gallery.gen_gallery',
+       'qtgallery',
+       ...
+    }
+
+Next, add the ``qtgallery`` `image scraper`_ and `reset function`_ to
+``sphinx_gallery_conf`` as follows:
 
 .. code-block:: python
 

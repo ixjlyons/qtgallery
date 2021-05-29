@@ -13,6 +13,8 @@ def qtscraper(block, block_vars, gallery_conf):
     subsequent cell.
 
     ``processEvents`` is called once in case events still need to propagate.
+
+    Intended for use in ``image_scrappers`` in the sphinx-gallery configuration.
     """
     imgpath_iter = block_vars['image_path_iterator']
 
@@ -35,14 +37,13 @@ def qtscraper(block, block_vars, gallery_conf):
 
 
 def reset_qapp(gallery_conf, fname):
-    """Shutdown an existing QApplication and disable exec_.
+    """Shutdown an existing QApplication and disable ``exec_``.
 
-    Disabling ``QApplication.exec_`` means your example scripts can call the
-    exec_ (so the scripts work when run normally) without blocking example
-    execution by sphinx-gallery.
+    Disabling ``QApplication.exec_`` means your example scripts can run the Qt event
+    loop (so the scripts work when run normally) without blocking example execution by
+    sphinx-gallery.
 
-    With PySide2, it seems to be necessary to destroy the QApplication instance
-    between example runs.
+    Intended for use in ``image_scrappers`` in the sphinx-gallery configuration.
     """
     try:
         # pyside-specific
