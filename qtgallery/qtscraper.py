@@ -12,7 +12,8 @@ def qtscraper(block, block_vars, gallery_conf):
     afterward, so you have to call ``show()`` again to render it in a
     subsequent cell.
 
-    ``processEvents`` is called once in case events still need to propagate.
+    ``processEvents`` is called twice with a delay between in case events still need to
+    propagate.
 
     Intended for use in ``image_scrappers`` in the sphinx-gallery configuration.
     """
@@ -21,6 +22,7 @@ def qtscraper(block, block_vars, gallery_conf):
     app = QApplication.instance()
     if app is None:
         app = QApplication([])
+
     app.processEvents()
 
     # get top-level widgets that aren't hidden
@@ -43,7 +45,7 @@ def reset_qapp(gallery_conf, fname):
     loop (so the scripts work when run normally) without blocking example execution by
     sphinx-gallery.
 
-    Intended for use in ``image_scrappers`` in the sphinx-gallery configuration.
+    Intended for use in ``reset_modules`` in the sphinx-gallery configuration.
     """
     try:
         # pyside-specific
