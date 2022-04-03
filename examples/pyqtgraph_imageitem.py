@@ -21,7 +21,7 @@ app = pg.mkQApp("ImageItem Example")
 # and add GraphicsItem objects in a grid layout.
 
 win = pg.GraphicsLayoutWidget()
-win.setWindowTitle('pyqtgraph example: ImageItem')
+win.setWindowTitle("pyqtgraph example: ImageItem")
 
 # %%
 # Add a ViewBox to which we'll add the ImageItem. We'll also lock the aspect ratio of
@@ -33,7 +33,7 @@ vb.setAspectLocked(True)
 # %%
 # Create the ImageItem and add it to the ViewBox
 
-img = pg.ImageItem(border='w')
+img = pg.ImageItem(border="w")
 vb.addItem(img)
 
 # %%
@@ -53,13 +53,15 @@ timer.setSingleShot(True)
 # Here is our callback function called by the timer. It cycles through the stack of
 # images, updates the ImageItem data, and restarts the timer.
 
+
 def updateData():
     global img, data, i
 
     img.setImage(data[i])
 
-    i = (i+1) % data.shape[0]
+    i = (i + 1) % data.shape[0]
     timer.start(1)
+
 
 # %%
 # Connect the timer to the callback and call the callback manually once to initialize.
@@ -74,5 +76,5 @@ win.show()
 
 # %%
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pg.mkQApp().exec_()

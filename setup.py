@@ -5,7 +5,7 @@ from setuptools import setup
 
 def read(fp):
     here = os.path.abspath(os.path.dirname(__file__))
-    with codecs.open(os.path.join(here, fp), 'r') as f:
+    with codecs.open(os.path.join(here, fp), "r") as f:
         return f.read()
 
 

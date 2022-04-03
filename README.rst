@@ -28,11 +28,11 @@ repository and install a few extra requirements to build the documentation
 locally::
 
     $ git clone git@github.com:ixjlyons/qtgallery.git
-    $ cd qtgallery/doc
+    $ cd qtgallery/docs
     $ pip install -r requirements
     $ make html
 
-Open up ``doc/_build/html/index.html`` to see built docs. They're currently
+Open up ``docs/_build/html/index.html`` to see built docs. They're currently
 being hosted by Read the Docs as well:
 
 https://qtgallery.readthedocs.io/
