@@ -10,6 +10,10 @@ qtgallery
    :target: https://qtgallery.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
+.. image:: https://github.com/ixjlyons/qtgallery/actions/workflows/tests.yml/badge.svg
+   :target: https://github.com/ixjlyons/qtgallery/actions?workflow=Tests
+   :alt: Tests
+
 Scraper for generating a `sphinx-gallery`_ of Qt widgets.
 
 This repository serves both as a library for grabbing renderings of Qt widgets

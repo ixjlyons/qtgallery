@@ -24,7 +24,6 @@ setup(
         "qtpy",
         "pyvirtualdisplay",
         "sphinx_gallery",
-        "pillow",
-        "sphinx_rtd_theme",
+        "sphinx",
     ],
 )
