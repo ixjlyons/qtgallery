@@ -14,9 +14,14 @@ qtgallery
    :target: https://github.com/ixjlyons/qtgallery/actions?workflow=Tests
    :alt: Tests
 
-Scraper for generating a `sphinx-gallery`_ of Qt widgets.
+.. image:: https://codecov.io/gh/ixjlyons/qtgallery/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/ixjlyons/qtgallery
+   :alt: Codecov
 
-This repository serves both as a library for grabbing renderings of Qt widgets
+
+Scraper for generating a `sphinx-gallery`_ of Qt windows.
+
+This repository serves both as a library for grabbing renderings of Qt windows
 to add to your own ``sphinx-gallery`` config as well as an example of its usage.
 
 
@@ -76,7 +81,7 @@ Next, add the ``qtgallery`` `image scraper`_ and `reset function`_ to
    }
 
 The image scraper is responsible for generating a rendering of all currently
-shown top level widgets.
+shown top level windows.
 
 The reset function is for handling ``QApplication``, allowing you to instantiate
 the ``QApplication`` singleton in each example and preventing the Qt event loop
@@ -88,7 +93,7 @@ Usage
 =====
 
 Usage pretty much follows `sphinx-gallery`_, but one tip is that you can control
-*where* the widget/window is rendered via ``show()``. See the `iterative
+*where* the window is rendered via ``show()``. See the `iterative
 example`_ to see how this works.
 
 Read the Docs

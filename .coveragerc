@@ -1,0 +1,10 @@
+[run]
+branch = true
+source =
+	qtgallery
+	tests
+
+[report]
+ignore_errors = True
+show_missing = true
+fail_under = 100
