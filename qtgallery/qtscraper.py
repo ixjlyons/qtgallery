@@ -58,14 +58,14 @@ def reset_qapp(gallery_conf, fname):
 
     Intended for use in ``reset_modules`` in the sphinx-gallery configuration.
     """
-    app_instance = QApplication.instance()
+    app = QApplication.instance()
 
-    if app_instance is not None:
+    if app is not None:
         if qtpy.API_NAME in ("PySide2", "PySide6"):
-            app_instance.shutdown()
+            app.shutdown()
         elif qtpy.API_NAME in ("PyQt5", "PyQt6"):
             from qtpy import sip
 
-            sip.delete(app_instance)
+            sip.delete(app)
 
     QApplication.exec_ = lambda _: None
