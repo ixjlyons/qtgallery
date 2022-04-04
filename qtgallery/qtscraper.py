@@ -41,7 +41,7 @@ def qtscraper(block, block_vars, gallery_conf):
         wid = window.winId()
         screen = window.screen()
         pixmap = screen.grabWindow(wid)
-        if not pixmap.save(imgpath, "PNG"):
+        if not pixmap.save(imgpath):
             logger.warning("Failed to save image: %s", imgpath)
         window.close()
         rendered_imgs.append(imgpath)
