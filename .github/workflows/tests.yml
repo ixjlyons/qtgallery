@@ -47,8 +47,3 @@ jobs:
       - name: Test with tox
         run: |
           tox -e ${{ matrix.tox-env }}-${{ matrix.qt-lib }} -- -ra --color=yes
-      - name: Upload documentation
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs-Python${{ matrix.python-version }}-${{ matrix.qt-lib }}
-          path: docs/_build
