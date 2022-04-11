@@ -68,4 +68,4 @@ def reset_qapp(gallery_conf, fname):
 
             sip.delete(app)
 
-    QApplication.exec_ = lambda _: None
+    QApplication.exec = QApplication.exec_ = lambda _: None
