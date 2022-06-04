@@ -1,21 +1,24 @@
 """
-QML Basic Example
-=================
-Basic Qt tutorial.
+QML Example
+===========
 """
+
 import os
 import sys
 
-from qtpy import QtCore
-from qtpy import QtWidgets
-from qtpy import QtQml
+from qtpy import QtCore, QtWidgets, QtQml
 
 app = QtWidgets.QApplication([])
 
+# %%
+# Set up some QtQuick styling
+
 os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
 os.environ["QT_QUICK_CONTROLS_MATERIAL_THEME"] = "Dark"
+
 # %%
-# Create a widget, populate it with a layout, then add a label with some text:
+# For simplicity, we put the QML in a string rather than a file
+
 qml = b"""
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -35,13 +38,9 @@ ApplicationWindow {
 """
 
 # %%
-# Show the widget so it'll render right after this text:
+# Load the application. If using a ``.qml`` file instead, you can use ``engine.load``
+
 engine = QtQml.QQmlApplicationEngine()
 engine.loadData(qml)
-# %%
-# If you have a ``QApplication.exec_()`` call at the end of your example script
-# (so it can be run as-is from the command line), ``qtgallery`` disables
-# the Qt event loop execution to prevent an indefinite loop.
 
-if __name__ == "__main__":
-    app.exec_()
+app.exec_()
