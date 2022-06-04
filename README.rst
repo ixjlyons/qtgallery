@@ -14,11 +14,6 @@ qtgallery
    :target: https://github.com/ixjlyons/qtgallery/actions?workflow=Tests
    :alt: Tests
 
-.. image:: https://codecov.io/gh/ixjlyons/qtgallery/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/ixjlyons/qtgallery
-   :alt: Codecov
-
-
 Scraper for generating a `sphinx-gallery`_ of Qt windows.
 
 This repository serves both as a library for grabbing renderings of Qt windows
