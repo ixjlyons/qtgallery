@@ -1,7 +1,11 @@
-from sphinx_gallery import scrapers
+import qtpy
 from qtpy.QtWidgets import QApplication
+from sphinx_gallery import scrapers
 
-__all__ = ['qtscraper', 'reset_qapp']
+from qtgallery.utils import logger
+
+
+logger.info("Qt api: %s", qtpy.API_NAME)
 
 
 def qtscraper(block, block_vars, gallery_conf):
@@ -17,25 +21,32 @@ def qtscraper(block, block_vars, gallery_conf):
 
     Intended for use in ``image_scrappers`` in the sphinx-gallery configuration.
     """
-    imgpath_iter = block_vars['image_path_iterator']
+    imgpath_iter = block_vars["image_path_iterator"]
 
-    app = QApplication.instance()
-    if app is None:
-        app = QApplication([])
+    app = QApplication.instance() or QApplication([])
 
     app.processEvents()
 
-    # get top-level widgets that aren't hidden
-    widgets = [w for w in app.topLevelWidgets() if not w.isHidden()]
+    windows = (
+        window for window in QApplication.topLevelWindows() if window.isVisible()
+    )
 
     rendered_imgs = []
-    for widg, imgpath in zip(widgets, imgpath_iter):
-        pixmap = widg.grab()
-        pixmap.save(imgpath)
+    for window, imgpath in zip(windows, imgpath_iter):
+        logger.info(
+            "QWindow information: objectName='%s', className='%s'",
+            window.objectName(),
+            window.metaObject().className(),
+        )
+        wid = window.winId()
+        screen = window.screen()
+        pixmap = screen.grabWindow(wid)
+        if not pixmap.save(imgpath):
+            logger.warning("Failed to save image: %s", imgpath)
+        window.close()
         rendered_imgs.append(imgpath)
-        widg.close()
 
-    return scrapers.figure_rst(rendered_imgs, gallery_conf['src_dir'])
+    return scrapers.figure_rst(rendered_imgs, gallery_conf["src_dir"])
 
 
 def reset_qapp(gallery_conf, fname):
@@ -47,10 +58,14 @@ def reset_qapp(gallery_conf, fname):
 
     Intended for use in ``reset_modules`` in the sphinx-gallery configuration.
     """
-    try:
-        # pyside-specific
-        if qApp:
-            qApp.shutdown()
-    except NameError:
-        pass
-    QApplication.exec_ = lambda _: None
+    app = QApplication.instance()
+
+    if app is not None:
+        if qtpy.API_NAME in ("PySide2", "PySide6"):
+            app.shutdown()
+        elif qtpy.API_NAME in ("PyQt5", "PyQt6"):
+            from qtpy import sip
+
+            sip.delete(app)
+
+    QApplication.exec = QApplication.exec_ = lambda _: None

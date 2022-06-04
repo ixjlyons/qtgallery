@@ -1,9 +1,5 @@
 sphinx
 sphinx_rtd_theme
-qtpy
-pyvirtualdisplay
-sphinx-gallery
-pillow
 pyside2
 pyqtgraph
 pyopengl

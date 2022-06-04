@@ -10,9 +10,13 @@ qtgallery
    :target: https://qtgallery.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-Scraper for generating a `sphinx-gallery`_ of Qt widgets.
+.. image:: https://github.com/ixjlyons/qtgallery/actions/workflows/tests.yml/badge.svg
+   :target: https://github.com/ixjlyons/qtgallery/actions?workflow=Tests
+   :alt: Tests
 
-This repository serves both as a library for grabbing renderings of Qt widgets
+Scraper for generating a `sphinx-gallery`_ of Qt windows.
+
+This repository serves both as a library for grabbing renderings of Qt windows
 to add to your own ``sphinx-gallery`` config as well as an example of its usage.
 
 
@@ -28,11 +32,11 @@ repository and install a few extra requirements to build the documentation
 locally::
 
     $ git clone git@github.com:ixjlyons/qtgallery.git
-    $ cd qtgallery/doc
+    $ cd qtgallery/docs
     $ pip install -r requirements
     $ make html
 
-Open up ``doc/_build/html/index.html`` to see built docs. They're currently
+Open up ``docs/_build/html/index.html`` to see built docs. They're currently
 being hosted by Read the Docs as well:
 
 https://qtgallery.readthedocs.io/
@@ -41,10 +45,9 @@ https://qtgallery.readthedocs.io/
 Configuration
 =============
 
-To use ``qtgallery`` in your own documentation, start by setting up
-`sphinx-gallery`_ -- ``qtgallery`` doesn't have its own configuration and
-instead relies on ``sphinx_gallery_conf``. Setting up a simple matplotlib plot
-as an example might be a good idea for testing the configuration works.
+To use ``qtgallery`` in your own documentation, start by setting up a normal
+`sphinx-gallery`_. Setting up a simple matplotlib example to get started might
+be a good idea.
 
 Next, add ``qtgallery`` to ``extensions``:
 
@@ -72,19 +75,37 @@ Next, add the ``qtgallery`` `image scraper`_ and `reset function`_ to
    }
 
 The image scraper is responsible for generating a rendering of all currently
-shown top level widgets.
+shown top level windows.
 
 The reset function is for handling ``QApplication``, allowing you to instantiate
 the ``QApplication`` singleton in each example and preventing the Qt event loop
 from running and hanging the docs build. That is, examples that run ok standalone
 should behave ok in generating the gallery.
 
+Display Configuration
+---------------------
+
+``qtgallery`` also has its own sphinx configuration variable
+(``qtgallery_conf``) for configuring the virtual display used. The defaults are
+listed below (also found in ``qtgallery/__init__.py``). The values are passed
+along in constructing a PyVirtualDisplay_ ``Display``:
+
+.. code-block:: python
+
+   # sphinx conf.py
+   qtgallery_conf = {
+        "xvfb_size": (640, 480),
+        "xvfb_color_depth": 24,
+        "xfvb_use_xauth": False,
+        "xfvb_extra_args": [],
+    }
+
 
 Usage
 =====
 
 Usage pretty much follows `sphinx-gallery`_, but one tip is that you can control
-*where* the widget/window is rendered via ``show()``. See the `iterative
+*where* the window is rendered via ``show()``. See the `iterative
 example`_ to see how this works.
 
 Read the Docs
@@ -99,5 +120,6 @@ apt packages`_. This repository also serves as an example (see
 .. _PyPI: https://pypi.org/project/qtgallery/
 .. _image scraper: https://sphinx-gallery.github.io/stable/configuration.html#image-scrapers
 .. _reset function: https://sphinx-gallery.github.io/stable/configuration.html#resetting-modules
+.. _PyVirtualDisplay: https://github.com/ponty/PyVirtualDisplay
 .. _iterative example: https://qtgallery.readthedocs.io/en/latest/auto_examples/iterative.html#sphx-glr-auto-examples-iterative-py
 .. _installing apt packages: https://docs.readthedocs.io/en/stable/config-file/v2.html#build-apt-packages
