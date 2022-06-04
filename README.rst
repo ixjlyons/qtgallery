@@ -45,10 +45,9 @@ https://qtgallery.readthedocs.io/
 Configuration
 =============
 
-To use ``qtgallery`` in your own documentation, start by setting up
-`sphinx-gallery`_ -- ``qtgallery`` doesn't have its own configuration and
-instead relies on ``sphinx_gallery_conf``. Setting up a simple matplotlib plot
-as an example might be a good idea for testing the configuration works.
+To use ``qtgallery`` in your own documentation, start by setting up a normal
+`sphinx-gallery`_. Setting up a simple matplotlib example to get started might
+be a good idea.
 
 Next, add ``qtgallery`` to ``extensions``:
 
@@ -83,6 +82,24 @@ the ``QApplication`` singleton in each example and preventing the Qt event loop
 from running and hanging the docs build. That is, examples that run ok standalone
 should behave ok in generating the gallery.
 
+Display Configuration
+---------------------
+
+``qtgallery`` also has its own sphinx configuration variable
+(``qtgallery_conf``) for configuring the virtual display used. The defaults are
+listed below (also found in ``qtgallery/__init__.py``). The values are passed
+along in constructing a PyVirtualDisplay_ ``Display``:
+
+.. code-block:: python
+
+   # sphinx conf.py
+   qtgallery_conf = {
+        "xvfb_size": (640, 480),
+        "xvfb_color_depth": 24,
+        "xfvb_use_xauth": False,
+        "xfvb_extra_args": [],
+    }
+
 
 Usage
 =====
@@ -103,5 +120,6 @@ apt packages`_. This repository also serves as an example (see
 .. _PyPI: https://pypi.org/project/qtgallery/
 .. _image scraper: https://sphinx-gallery.github.io/stable/configuration.html#image-scrapers
 .. _reset function: https://sphinx-gallery.github.io/stable/configuration.html#resetting-modules
+.. _PyVirtualDisplay: https://github.com/ponty/PyVirtualDisplay
 .. _iterative example: https://qtgallery.readthedocs.io/en/latest/auto_examples/iterative.html#sphx-glr-auto-examples-iterative-py
 .. _installing apt packages: https://docs.readthedocs.io/en/stable/config-file/v2.html#build-apt-packages
