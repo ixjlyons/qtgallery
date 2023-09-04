@@ -1,5 +1,5 @@
-==========
-Qt Gallery
-==========
+============
+Gallery Demo
+============
 
-Below is a gallery of Qt application examples.
+Here are some Qt application examples to demonstrate what ``qtgallery`` does.

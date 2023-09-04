@@ -1,8 +1,9 @@
 """
-MPL
-===
+Matplotlib
+==========
 
-Super simple matplotlib example
+This example is basically a test of using multiple scrapers, demonstrating you can use
+sphinx-gallery as normal and add in bare Qt application scripts.
 """
 
 import matplotlib.pyplot as plt
