@@ -61,9 +61,10 @@ def reset_qapp(gallery_conf, fname):
     app = QApplication.instance()
 
     if app is not None:
-        if qtpy.API_NAME in ("PySide2", "PySide6"):
+        api_name = qtpy.API_NAME.lower()
+        if api_name in {"pyside2", "pyside6"}:
             app.shutdown()
-        elif qtpy.API_NAME in ("PyQt5", "PyQt6"):
+        elif api_name in {"pyqt5", "pyqt6"}:
             from qtpy import sip
 
             sip.delete(app)
