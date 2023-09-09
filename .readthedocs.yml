@@ -15,4 +15,3 @@ build:
     python: "3.10"
   apt_packages:
     - xvfb
-    - libgl1-mesa-glx
