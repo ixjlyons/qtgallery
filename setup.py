@@ -26,4 +26,13 @@ setup(
         "sphinx_gallery",
         "sphinx",
     ],
+    extras_require={
+        "docs": [
+            "sphinx",
+            "sphinx_rtd_theme",
+            "pyqtgraph",
+            "pyopengl",
+            "matplotlib",
+        ],
+    },
 )
