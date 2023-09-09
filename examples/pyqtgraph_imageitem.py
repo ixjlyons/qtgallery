@@ -12,7 +12,6 @@ image is dynamically updated via a timer and callback function.
 from qtpy import QtCore
 import numpy as np
 import pyqtgraph as pg
-import pyqtgraph.ptime as ptime
 
 app = pg.mkQApp("ImageItem Example")
 

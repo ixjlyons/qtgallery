@@ -1,6 +1,6 @@
-sphinx
-sphinx_rtd_theme
-pyside2
-pyqtgraph
-pyopengl
-matplotlib
+sphinx==7.2.5
+sphinx_rtd_theme==1.3.0
+pyside6==6.5.2
+pyqtgraph==0.13.3
+pyopengl==3.1.7
+matplotlib==3.7.2
