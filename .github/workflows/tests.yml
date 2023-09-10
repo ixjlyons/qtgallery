@@ -1,36 +1,19 @@
 name: Tests
 
 on:
-  - push
-  - pull_request
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
-    name: Python ${{ matrix.python-version }} - ${{ matrix.qt-lib }}
+    name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
-        qt-lib: [pyqt5, pyqt6, pyside2, pyside6]
-        include:
-          - python-version: "3.7"
-            tox-env: "py37"
-          - python-version: "3.8"
-            tox-env: "py38"
-          - python-version: "3.9"
-            tox-env: "py39"
-          - python-version: "3.10"
-            tox-env: "py310"
-          - python-version: "3.11"
-            tox-env: "py311"
-        exclude:
-          # https://bugreports.qt.io/browse/PYSIDE-1797
-          - python-version: "3.7"
-            qt-lib: pyside6
-          # https://forum.qt.io/topic/144843/pyside2-shiboken2-support-for-python-3-11
-          - python-version: "3.11"
-            qt-lib: pyside2
 
     steps:
       - name: Check out the repository
@@ -55,6 +38,5 @@ jobs:
             libegl1 \
             xvfb
 
-      - name: Test with tox
-        run: |
-          pipx run tox -e ${{ matrix.tox-env }}-${{ matrix.qt-lib }} -- -ra --color=yes
+      - name: Test with nox
+        run: pipx run nox -e test
